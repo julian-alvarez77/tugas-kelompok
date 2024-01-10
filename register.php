@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'dictionary.php';
+// include 'connection.php';
 
 $MESSAGE = '';
 if (isset($_SESSION['MESSAGE'])) {
@@ -41,7 +42,7 @@ if (isset($_SESSION['MESSAGE'])) {
     </head>
     <body>
         <main class="app-content center">
-            <section class="input-section">
+            <section id="inputSection" class="input-section">
                 <?php if (isset($MESSAGE) && !empty($MESSAGE)): ?>
                     <div style="background-color: red; color: white; padding: 10px; border-radius: 10px;">
                         <?php echo htmlspecialchars($MESSAGE); ?>
@@ -50,9 +51,9 @@ if (isset($_SESSION['MESSAGE'])) {
                 <?php endif; ?>
                 <br>
                 <div class="input-head">
-                    <h2>Login</h2>
+                    <h2>Register</h2>
                 </div>
-                <form action="<?php echo $CURRENT_URL . '/loginController.php'; ?>" method="POST">
+                <form action="<?php echo $CURRENT_URL . '/registerController.php'; ?>" method="POST">
                     <div class="input-item col">
                         <label>Email</label>
                         <input
@@ -71,10 +72,7 @@ if (isset($_SESSION['MESSAGE'])) {
                         />
                     </div>
                     <div class="button-container">
-                        <a href="<?php echo $CURRENT_URL . '/register.php'; ?>" style="background-color: yellowgreen; color: black; font-weight: bold; text-align: center; display: flex; justify-content: center; align-items: center; height: 50px;">
-                            Register
-                        </a>
-                        <button type="submit">Login</button>
+                        <button type="submit">Register</button>
                     </div>
                 </form>
             </section>

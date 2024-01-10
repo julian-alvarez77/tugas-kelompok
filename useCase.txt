@@ -1,0 +1,7 @@
+1. User dan password salah (Login)
+2. Jika user sudah pernah dipakai (Register)
+3. Password terlalu pendek (register)
+4. Format email tidak valid (Login dan register)
+5. Email diisi tapi password kosong (login)
+6. Password diisi tapi email kosong (login)
+7. Field tidak ada yang terisi (login dan register)
