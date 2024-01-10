@@ -141,9 +141,9 @@
             <label for="password">Password</label>
             <input type="password" placeholder="password" id="password">
             <button>Register</button>
-        </form> -->
+        </form>
 
-        <!-- <form>
+        <form>
             <label for="username">Username</label>
             <input type="text" placeholder="username" id="username">
             <label for="password">Password</label>
