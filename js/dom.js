@@ -1,12 +1,33 @@
 const addBook = () => {
     const title = document.getElementById("inputBookTitle").value;
-    const author = document.getElementById("inputBookAuthor").value;
-    const year = document.getElementById("inputBookYear").value;
+    const authorInput = document.getElementById("inputBookAuthor").value;
+    const borrowerInput = document.getElementById("inputBorrower").value;
+    const yearInput = document.getElementById("inputBookYear").value;
     const isCompleted = document.getElementById("inputBookIsComplete").checked;
+
+    // Check if the author input contains only alphabetic characters
+    if (!/^[a-zA-Z\s]+$/.test(authorInput)) {
+        alert('Penulis harus berupa huruf alfabet dengan spasi.');
+        return; // Exit the function if validation fails
+    }
+
+    // Check if the borrower input contains only alphabetic characters and spaces
+    if (!/^[a-zA-Z\s]+$/.test(borrowerInput)) {
+        alert('Peminjam harus berupa huruf alfabet dengan spasi.');
+        return; // Exit the function if validation fails
+    }
+
+    // Check if the year input is exactly four digits
+    if (!/^\d{4}$/.test(yearInput)) {
+        alert('Tahun harus berupa angka dan terdiri dari empat digit.');
+        return; // Exit the function if validation fails
+    }
+    const year = parseInt(yearInput, 10);
     const object = {
         id: +new Date(),
         title: title,
-        author: author,
+        author: authorInput,
+        borrower: borrowerInput,
         year: year,
         isCompleted: isCompleted,
     };
@@ -20,10 +41,12 @@ const makeBook = (book) => {
     const bookItem = document.createElement("article");
     bookItem.classList.add("book-item");
     bookItem.innerHTML = "";
+    let bookBorrower = book.borrower ? book.borrower : "";
 
     if (book.isCompleted) {
         bookItem.innerHTML = `
             <h3>${book.title}</h3>
+            <p>Peminjam: ${bookBorrower}</p>
             <p>Penulis: ${book.author}</p>
             <p>Tahun: ${book.year}</p>
             <div class="action">
@@ -37,6 +60,7 @@ const makeBook = (book) => {
     } else {
         bookItem.innerHTML = `
             <h3>${book.title}</h3>
+            <p>Peminjam: ${bookBorrower}</p>
             <p>Penulis: ${book.author}</p>
             <p>Tahun: ${book.year}</p>
             <div class="action">

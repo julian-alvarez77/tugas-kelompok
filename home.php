@@ -48,6 +48,15 @@
                             required
                         />
                     </div>
+                    <div class="input-item col">
+                        <label for="inputBorrower">Peminjam</label>
+                        <input
+                            id="inputBorrower"
+                            type="text"
+                            placeholder="Masukan Nama Penulis"
+                            required
+                        />
+                    </div>
                     <div class="input-item row">
                         <div class="input-item row">
                             <label for="inputBookYear">Tahun</label>
