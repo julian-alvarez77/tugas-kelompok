@@ -71,7 +71,7 @@ if (isset($_SESSION['MESSAGE'])) {
                         />
                     </div>
                     <div class="button-container">
-                        <a href="<?php echo $CURRENT_URL . '/register.php'; ?>" style="background-color: yellowgreen; color: black; font-weight: bold; text-align: center; display: flex; justify-content: center; align-items: center; height: 50px;">
+                        <a href="<?php echo $CURRENT_URL . '/register.php'; ?>">
                             Register
                         </a>
                         <button type="submit">Login</button>

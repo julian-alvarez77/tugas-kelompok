@@ -58,6 +58,27 @@ button:hover {
     transition: 200ms;
 }
 
+.button-container a{
+    border: none;
+    font-weight: bold;
+    background-color: var(--primary); 
+    text-decoration: none; 
+    color: white;
+    box-shadow: 0 2px 8px rgb(0, 0, 0, 0.1); 
+    border-radius: 0.5rem; 
+    text-align: center; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 40px;
+}
+
+.button-container a:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 200ms;
+}
+
 .w-icon {
     width: 20px;
 }

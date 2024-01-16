@@ -114,6 +114,19 @@
                         <span id="countComplete">0</span>
                     </button>
 
+                    <button
+                        class="filter-"
+                        onclick="filterBook('completeBookshelf')"
+                    >
+                        <img
+                            class="w-icon"
+                            src="assets/close-book.png"
+                            alt=""
+                        />
+                        <p>Tabel</p>
+                        <span id="countComplete">0</span>
+                    </button>
+
                     <div class="search-book">
                         <label for="searchBookTitle">
                             <img
