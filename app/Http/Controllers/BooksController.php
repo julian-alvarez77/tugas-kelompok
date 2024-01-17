@@ -21,10 +21,9 @@ class BooksController extends Controller
 			$user_id = Auth::user()->id;
       $books = Book::where('user_id', $user_id);
 			*/
-			$books = Book::where('user_id', Auth::user()->id)->get();
-      $booksUnreadCount = Book::where('status', "unread")->count();
-      $booksReadingCount = Book::where('status', "reading")->count();
-      $booksFinishedCount = Book::where('status', "finished")->count();
+			$books = Book::get();
+      $booksUnvailableCount = Book::where('is_borrowed', true)->count();
+      $booksAvailableCount = Book::where('is_borrowed', false)->count();
 
       foreach ($books as $book) {
           $book->image = str_replace('public/', 'storage/', $book->image);
@@ -32,9 +31,8 @@ class BooksController extends Controller
 
       return view('index',[
           "books" => $books,
-          "booksUnreadCount" => $booksUnreadCount,
-          "booksReadingCount" => $booksReadingCount,
-          "booksFinishedCount" => $booksFinishedCount,
+          "booksUnvailableCount" => $booksUnvailableCount,
+          "booksAvailableCount" => $booksAvailableCount,
       ]);
     }
 
@@ -43,6 +41,8 @@ class BooksController extends Controller
         $book = new Book();
 				$book->user_id = Auth::user()->id;
         $book->name = $request->book_title;
+        $book->author = $request->book_author;
+        $book->year = $request->book_tahun;
         $book->image = $request->book_image->store('public/post_images');
         $book->save();
         return redirect('/');
@@ -58,6 +58,10 @@ class BooksController extends Controller
           $book->status = "reading";
         }elseif ($request->finished){
           $book->status = "finished";
+        }
+
+        if ($request->borrow) {
+          $book->is_borrowed = true;
         }
 
         $book->save();

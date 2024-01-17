@@ -10,9 +10,11 @@
 
      <!-- Right Side Of Navbar -->
    <ul class="header-right">
-        <div class="header-item">
-            <a href="./new"><img src="/img/icon_plus.png" alt="">Tambah Buku</a>
-        </div>
+        @if (auth()->check() && auth()->user()->is_admin)
+            <div class="header-item">
+                <a href="./new"><img src="/img/icon_plus.png" alt="">Tambah Buku</a>
+            </div>
+        @endif
 
         @guest
             <div class="header-item">

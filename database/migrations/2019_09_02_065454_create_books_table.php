@@ -16,6 +16,9 @@ class CreateBooksTable extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('author');
+            $table->string('year');
+            $table->boolean('is_borrowed')->default(false);
             $table->string('status');
             $table->string('image');
             $table->integer('user_id');
